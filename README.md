@@ -131,21 +131,21 @@ The goal of a single-query path planning problem is to find a continuous path fr
 The basic RRT algorithm works by repeatedly extending a tree structure through the configuration space. In each iteration, the algorithm tries to grow the tree toward a randomly chosen configuration.
 Here's how it works step-by-step:
 
-    1. A random configuration q is sampled.
+    1- A random configuration q is sampled.
     
-    2. The algorithm finds the nearest existing node in the tree to q.
+    2- The algorithm finds the nearest existing node in the tree to q.
     
-    3. Using the EXTEND function, it attempts to move from the nearest node toward q, but only by a small fixed step.
+    3- Using the EXTEND function, it attempts to move from the nearest node toward q, but only by a small fixed step.
     
-    4. This motion is handled by a function called NEW_CONFIG, which also checks whether the motion stays inside the collision-free space.
+    4- This motion is handled by a function called NEW_CONFIG, which also checks whether the motion stays inside the collision-free space.
     
 Depending on the result, one of three outcomes occurs:
 
-    • Reached: If the tree already has a node very close to q, the algorithm considers it "reached" and adds no new node.
+    - Reached: If the tree already has a node very close to q, the algorithm considers it "reached" and adds no new node.
     
-    • Advanced: If the motion toward q is valid (collision-free), a new node is added at the point reached.
+    - Advanced: If the motion toward q is valid (collision-free), a new node is added at the point reached.
     
-    • Trapped: If the path toward q would result in a collision, the attempt is abandoned, and nothing is added to the tree.
+    - Trapped: If the path toward q would result in a collision, the attempt is abandoned, and nothing is added to the tree.
 
 **RRT_connect:**
 
