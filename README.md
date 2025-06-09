@@ -161,7 +161,7 @@ Here’s how it works in each iteration:
     
     4. The algorithm then looks for all existing nodes within a certain radius r_near of ​ S_new. This group is called the near set S_near
     
-    5. From this set, it selects the best parent node — the one that results in the lowest total path cost from the start node to S_new ​. Then it connects ​`S_new` to that parent.
+    5. From this set, it selects the best parent node — the one that results in the lowest total path cost from the start node to S_new ​. Then it connects ​S_new to that parent.
     
     6. Next, it checks all other nodes in $S_near$ (excluding the new parent). For each, it evaluates whether connecting through ​S_new​ would lower their total cost from S_init ​. If so, the tree is rewired to make S_new​ their new parent.
     
