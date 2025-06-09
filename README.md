@@ -103,7 +103,6 @@ The path planning of robotic arms in complex and narrow environments with multip
 
 **Potential field (PF):**
 
-![image](https://github.com/user-attachments/assets/c6c481b7-f0bb-4312-8e2a-7b61eaf9df4d)
 
 The potential field method models the robot as a point moving through the configuration space, influenced by an artificial potential field U.
 This field U is designed with two main effects:
@@ -146,6 +145,9 @@ Depending on the result, one of three outcomes occurs:
 - Advanced: If the motion toward q is valid (collision-free), a new node is added at the point reached.
     
 - Trapped: If the path toward q would result in a collision, the attempt is abandoned, and nothing is added to the tree.
+
+  ![image](https://github.com/user-attachments/assets/c6c481b7-f0bb-4312-8e2a-7b61eaf9df4d)
+
 
 **RRT_connect:**
 
