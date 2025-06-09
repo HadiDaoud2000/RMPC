@@ -161,6 +161,8 @@ During each iteration:
     
 This alternating strategy helps both trees explore the collision-free space while continuously trying to connect with each other, increasing the chance of finding a valid path efficiently.
  However, the bidirectional search still exhibits a certain degree of randomness and cannot guarantee an optimal path obtainment.
+
+ 
 ![RRT](https://github.com/user-attachments/assets/ba574325-38a7-430f-8b5f-2c2a96ffcd40)
 
 
