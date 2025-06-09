@@ -237,3 +237,13 @@ to move and the desired position2.
 ![panda_agent Policy](https://github.com/user-attachments/assets/a4d8fd37-2a61-4d7c-a167-84f6eaa2d8c6)
 
 
+**Trajectory Planning:**
+
+After obtaining a collision-free path from an obstacle avoidance algorithm (e.g., RRT*), the next step is joint-space trajectory planning to ensure smooth and dynamically feasible motion between consecutive waypoints. For this purpose, we employ the multiple trajectory planning methods, such as quantic jtraj (joint trajectory) function, a widely used method in robotics for generating interpolated trajectories in joint space.
+
+$$
+\theta(t) = a_0 + a_1 t + a_2 t^2 + a_3 t^3 + a_4 t^4 + a_5 t^5
+$$
+
+By leveraging jtraj for joint-space interpolation, we achieve precise, smooth, and dynamically feasible motion for the Franka Emika Panda, while seamlessly integrating obstacle-free paths from sampling-based planners.
+
