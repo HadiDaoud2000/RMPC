@@ -108,9 +108,9 @@ The path planning of robotic arms in complex and narrow environments with multip
 The potential field method models the robot as a point moving through the configuration space, influenced by an artificial potential field U.
 This field U is designed with two main effects:
 
-    • It attracts the robot toward the goal position Q_final
+-It attracts the robot toward the goal position Q_final
     
-    • It repels the robot away from obstacles (represented by the boundaries​, the obstacle region).
+-It repels the robot away from obstacles (represented by the boundaries​, the obstacle region).
     
 Ideally, this potential field is shaped so that it has only one global minimum, exactly at the goal, meaning the robot will naturally follow the gradient downhill to the target without getting stuck.
 However, in practice, designing such a perfect field is difficult. Most potential fields suffer from local minima, spots where the robot can get stuck without reaching the goal, making this method unreliable on its own in complex environments.
