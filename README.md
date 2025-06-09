@@ -9,12 +9,17 @@ this project's main goal is to achieve path planning, trajectory planning, and m
 **Modeling The Robot:**
 
 The first step in this problem is to find the forward kinematics of the robot. To obtain the forward kinematics, one can begin by defining the robot's kinematic structure, including joint variables, link lengths, joint angles, and their corresponding transformation matrices using the Denavit-Hartenberg (DH) parameters. Denavit-Hartenberg (DH) transformation matrix between two consecutive links $i$ and $i+1$ is given by the form:
-\begin{equation}
-T_{i,i+1}(\theta)=\begin{bmatrix}
-cos(\theta_i) & -sin(\theta_i)cos(\alpha_i) &sin(\theta_i)sin(\alpha_i) & a_icos(\theta_i)\\
-sin(\theta_i) &cos(\theta_i)cos(\alpha_i) & -cos(\theta_i)sin(\alpha_i) & a_isin(\theta_i)\\                                  0 &sin(\alpha_i) &cos(\alpha_i) & d_i \\                                               0 & 0 & 0 & 1
-\end{bmatrix}
-\end{equation}
+
+|  aⱼ₋₁   |  ⍺ⱼ₋₁  | θⱼ  |  dⱼ   |   q⁻    |   q⁺   |
+|---------|--------|-----|-------|---------|--------|
+|    0.0  |   0.0° |  q1 | 0.333 | -166.0° | 166.0° |
+|    0.0  | -90.0° |  q2 |   0.0 | -101.0° | 101.0° |
+|    0.0  |  90.0° |  q3 | 0.316 | -166.0° | 166.0° |
+| 0.0825  |  90.0° |  q4 |   0.0 | -176.0° |  -4.0° |
+| -0.0825 | -90.0° |  q5 | 0.384 | -166.0° | 166.0° |
+|    0.0  |  90.0° |  q6 |   0.0 |   -1.0° | 215.0° |
+|  0.088  |  90.0° |  q7 | 0.107 | -166.0° | 166.0° |
+
 
 **Path Planning Algorithms:**
 The path planning of robotic arms in complex and narrow environments with multiple obstacles poses challenges, and path-planning algorithms can generally be categorized into three types: graph-based search, deep learning-based, and sampling-based algorithms.
