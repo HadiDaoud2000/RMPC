@@ -49,6 +49,7 @@ $$
 
 
 **Inverse Kinematics problem**
+
 The inverse kinematics (IK) problem for redundant manipulators focuses on computing the joint angles needed to reach a desired end-effector position and orientation while leveraging the system's redundancy. Due to the multiple possible joint-space configurations that can achieve the same end-effector pose, this problem presents significant complexity in robotics.
 Common Methods For IK in redundant manipulators
 
@@ -70,12 +71,13 @@ Population-based optimization techniques like improve solution precision for ind
 For our problem we used the ikine_LM to calculate the inverse kinematics of our manipulator when needed, wich depends on Levenberg-Marquadt Numerical Inverse Kinematics Solver (LM)
 The LM algorithm blends the concepts of the Gauss-Newton algorithm and gradient descent. It is particularly useful when the Jacobian matrix is ill-conditioned or when the initial guess is far from the solution.
 
-The update rule for the joint angles θ is given by:
+The update rule for the joint angles $θ$ is given by:
 
 $$
 \Delta\theta = (J^\top J + \lambda I)^{-1} J^\top (x_d - f(\theta))
 $$
-Here,  J is the Jacobian matrix of partial derivatives of the end-effector position with respect to the joint angles, λ is a damping factor, and I is the identity matrix.
+
+Here,  $J$ is the Jacobian matrix of partial derivatives of the end-effector position with respect to the joint angles, $λ$ is a damping factor, and $I$ is the identity matrix.
 
 The joint angles is updated iteratively as follows:
 
