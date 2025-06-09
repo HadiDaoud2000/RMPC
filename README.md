@@ -66,9 +66,9 @@ Recent advances in inverse kinematics (IK) leverage diverse computational approa
 
 Population-based optimization techniques like improve solution precision for industrial robotic applications. Jacobian-based approaches (pseudoinverse, DLS, SDLS) maintain popularity for real-time control due to their computational efficiency. Gradient descent provides fast convergence but risks local minima, while genetic algorithms explore global solutions at the cost of higher computational overhead and potential convergence to near-optimal rather than exact solutions, Jacobian techniques struggle with singularities. Each method presents distinct trade-offs, the optimal choice depends on application-specific requirements for speed, accuracy, and implementation constraints.
 
-### Suggested solution for the Inverse Kinematics problem
+##### Suggested solution for the Inverse Kinematics problem
 
-For our problem we used the ikine_LM to calculate the inverse kinematics of our manipulator when needed, wich depends on Levenberg-Marquadt Numerical Inverse Kinematics Solver (LM)
+For our problem we used the `ikine_LM` to calculate the inverse kinematics of our manipulator when needed, wich depends on Levenberg-Marquadt Numerical Inverse Kinematics Solver (LM)
 The LM algorithm blends the concepts of the Gauss-Newton algorithm and gradient descent. It is particularly useful when the Jacobian matrix is ill-conditioned or when the initial guess is far from the solution.
 
 The update rule for the joint angles $θ$ is given by:
@@ -88,9 +88,11 @@ $$
 This process is repeated until the change in θ is below a certain threshold, indicating convergence.
 
 **Path Planning Algorithms:**
+
 The path planning of robotic arms in complex and narrow environments with multiple obstacles poses challenges, and path-planning algorithms can generally be categorized into three types: graph-based search, deep learning-based, and sampling-based algorithms.
 
 **Potential field (PF):**
+
 ![image](https://github.com/user-attachments/assets/c6c481b7-f0bb-4312-8e2a-7b61eaf9df4d)
 
 The potential field method models the robot as a point moving through the configuration space, influenced by an artificial potential field U.
@@ -112,13 +114,21 @@ The collision-free space, ​, contains all the configurations where the object(
 The goal of a single-query path planning problem is to find a continuous path from a starting configuration to a goal configuration​, without any prior processing of the environment.
 The basic RRT algorithm works by repeatedly extending a tree structure through the configuration space. In each iteration, the algorithm tries to grow the tree toward a randomly chosen configuration.
 Here's how it works step-by-step:
+
     1. A random configuration q is sampled.
+    
     2. The algorithm finds the nearest existing node in the tree to q.
-    3. Using the EXTEND function, it attempts to move from the nearest node toward q, but only by a small fixed step
-    4. This motion is handled by a function called NEW_CONFIG, which also checks whether the motion stays inside the collision-free space ​.
+    
+    3. Using the EXTEND function, it attempts to move from the nearest node toward q, but only by a small fixed step.
+    
+    4. This motion is handled by a function called NEW_CONFIG, which also checks whether the motion stays inside the collision-free space.
+    
 Depending on the result, one of three outcomes occurs:
+
     • Reached: If the tree already has a node very close to q, the algorithm considers it "reached" and adds no new node.
+    
     • Advanced: If the motion toward q is valid (collision-free), a new node is added at the point reached.
+    
     • Trapped: If the path toward q would result in a collision, the attempt is abandoned, and nothing is added to the tree.
 
 **RRT_connect:**
@@ -126,6 +136,7 @@ Depending on the result, one of three outcomes occurs:
 RRT-Connect algorithm can simultaneously generate two trees at the initial and goal points. By employing a greedy strategy, the two trees grow towards each other, enabling faster pathfinding.
 In this approach, two trees are grown simultaneously — one starting from the initial configuration and the other from the goal. These trees are maintained separately until they meet, which means a valid path has been found.
 During each iteration:
+
     1. One of the trees is selected to grow toward a random sample.
     
     2. After adding a new node to that tree, the algorithm tries to connect the other tree to the new node by extending it toward the same point.
