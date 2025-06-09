@@ -170,8 +170,8 @@ Through repeated iterations of this process sampling, connecting, and rewiring  
 ![RRTTT](https://github.com/user-attachments/assets/99232967-9cda-46da-a72a-c8e2e05af877)
 
 
-
 **Reinforcement Learning:**
+
 Reinforcement learning (RL) is a branch of machine learning depended on
 the interactions between the agent and the environment to train the agent, it is in-
 spired by human’s behavior where the human learns from the consequences of his
@@ -186,6 +186,7 @@ we will show the results of implementing DDPG algorithm on PandaReach-v3 task, u
 due to the lack of time, RL was implemented only for environments without obstacles.
 
 **Task description in RL framework:**
+
 Reach problem in Panda-gym environment: A target position must be
 reached with the gripper.This target position is randomly generated in a volume of
 30 cm × 30 cm × 30 cm, with an observation of position and speed of the gripper
