@@ -116,6 +116,12 @@ Ideally, this potential field is shaped so that it has only one global minimum, 
 However, in practice, designing such a perfect field is difficult. Most potential fields suffer from local minima, spots where the robot can get stuck without reaching the goal, making this method unreliable on its own in complex environments.
 In general, the field U is an additive field consisting of one component that attracts the robot to  and a second component that repels the robot from the boundary. Given that, path planning can be treated as an optimization problem (find the global minimum in U) starting from initial configuration. One of the easiest algorithms to solve this problem is gradient descent. In this case, the negative gradient of U can be considered as a force acting on the robot.
 
+
+
+https://github.com/user-attachments/assets/5239612d-5b9d-41f3-86e9-634c4e966fbb
+
+
+
 **Rapidly exploring Random Tree(RRT):**
 
 Path planning involves finding a way through a space called the configuration space, where each point represents a specific position and orientation of an object (or multiple objects) in a 2D or 3D environment. This space can be complex due to the shape and movement of the objects involved.
@@ -194,6 +200,10 @@ Through repeated iterations of this process sampling, connecting, and rewiring  
 
 
 https://github.com/user-attachments/assets/44808be3-5100-45d5-a987-2a85e116634e
+
+
+
+https://github.com/user-attachments/assets/9317ee44-bee5-43f1-8457-a76e2ab44a46
 
 
 
