@@ -52,14 +52,14 @@ $$
 The inverse kinematics (IK) problem for redundant manipulators focuses on computing the joint angles needed to reach a desired end-effector position and orientation while leveraging the system's redundancy. Due to the multiple possible joint-space configurations that can achieve the same end-effector pose, this problem presents significant complexity in robotics.
 Common Methods For IK in redundant manipulators
 
-### 1. Jacobian-Based Methods
+##### 1. Jacobian-Based Methods
 
 Jacobian-based IK methods compute joint-to-end-effector velocity mappings via the Jacobian matrix. Key approaches include the Pseudoinverse (Moore-Penrose) for minimal joint velocities, Damped Least Squares (DLS) for singularity robustness via fixed damping, and Selectively Damped Least Squares (SDLS) with adaptive damping per singular value. While efficient for real-time control, all three methods face challenges near kinematic singularities, requiring careful tuning to balance precision and stability.
 
-### 2. Optimization-Based Methods
+##### 2. Optimization-Based Methods
 
 Optimization-based IK frames the problem as constrained minimization of objectives (e.g., joint displacement/energy) subject to limits and obstacles. Key solvers include gradient descent (fast local solutions), SQP (handles nonlinear constraints), and genetic algorithms (global search). While highly flexible for multi-criteria tasks, computational demands can be substantial.
-### 3. Machine Learning Approaches
+##### 3. Machine Learning Approaches
 
 Recent advances in inverse kinematics (IK) leverage diverse computational approaches. Machine learning methods like neural networks and reinforcement learning enable data-driven IK solutions, offering fast inference for complex high-DOF systems but requiring extensive training datasets. Population-based methods like Particle Swarm Optimization (PSO) are commonly used to solve the Inverse Kinematics problem.
 
@@ -72,13 +72,16 @@ The LM algorithm blends the concepts of the Gauss-Newton algorithm and gradient 
 
 The update rule for the joint angles θ is given by:
 
-Δθ = (JᵀJ + λI)⁻¹Jᵀ(x_d  - f(θ))
-
+$$
+\Delta\theta = (J^\top J + \lambda I)^{-1} J^\top (x_d - f(\theta))
+$$
 Here,  J is the Jacobian matrix of partial derivatives of the end-effector position with respect to the joint angles, λ is a damping factor, and I is the identity matrix.
 
 The joint angles is updated iteratively as follows:
 
-θ_(k+1)  = θ_k  + Δθ
+$$
+\theta_{k+1} = \theta_k + \Delta\theta
+$$
 
 This process is repeated until the change in θ is below a certain threshold, indicating convergence.
 
