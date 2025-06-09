@@ -1,5 +1,7 @@
 # RMPC
+
 this repository represent a course work in the subject RMPC
+
 **Problem statement:**
 
 this project's main goal is to achieve path planning, trajectory planning, and motion control for Franka Emika 7DoF robotic manipulator with static obstacles avoidance using different algorithms (PF, RRT_connect, RRT*, RL) for path planning, (joint space interpolation) for trajectory planning, and finally computed torque controller as a motion controller.
@@ -22,6 +24,7 @@ However, in practice, designing such a perfect field is difficult. Most potentia
 In general, the field U is an additive field consisting of one component that attracts the robot to  and a second component that repels the robot from the boundary. Given that, path planning can be treated as an optimization problem (find the global minimum in U) starting from initial configuration. One of the easiest algorithms to solve this problem is gradient descent. In this case, the negative gradient of U can be considered as a force acting on the robot.
 
 **Rapidly exploring Random Tree(RRT):**
+
 Path planning involves finding a way through a space called the configuration space, where each point represents a specific position and orientation of an object (or multiple objects) in a 2D or 3D environment. This space can be complex due to the shape and movement of the objects involved.
 A distance metric is defined on this space to measure how far apart two configurations are.
 The collision-free space, ​, contains all the configurations where the object(s) do not collide with any of the static obstacles in the environment. These obstacles are fully defined in the environment, but we don't have an explicit map of collision-free space​. Instead, we rely on collision detection algorithms to check whether a given configuration is safe.
@@ -38,6 +41,7 @@ Depending on the result, one of three outcomes occurs:
     • Trapped: If the path toward q would result in a collision, the attempt is abandoned, and nothing is added to the tree.
 
 **RRT_connect:**
+
 RRT-Connect algorithm can simultaneously generate two trees at the initial and goal points. By employing a greedy strategy, the two trees grow towards each other, enabling faster pathfinding.
 In this approach, two trees are grown simultaneously — one starting from the initial configuration and the other from the goal. These trees are maintained separately until they meet, which means a valid path has been found.
 During each iteration:
@@ -52,7 +56,8 @@ This alternating strategy helps both trees explore the collision-free space whil
  ![image](https://github.com/user-attachments/assets/e9fd6fe7-e6b7-423e-9a04-c484ce99d18b)
 
  **RRT_star:**
- RRT*, an extension of RRT, which incorporates the parental node reselection and rewiring mechanisms, achieving asymptotic optimality at the cost of increased computation time.
+ 
+RRT*, an extension of RRT, which incorporates the parental node reselection and rewiring mechanisms, achieving asymptotic optimality at the cost of increased computation time.
 It incrementally builds a tree structure within the configuration space to find the optimal path from the start node `S_init`  to the goal node `S_goal` ​.
 Here’s how it works in each iteration:
 
@@ -70,7 +75,7 @@ Here’s how it works in each iteration:
     
 Through repeated iterations of this process — sampling, connecting, and rewiring — RRT* gradually improves the quality of the path. Over time, it converges toward the optimal solution, ensuring asymptotic optimality while still exploring complex environments efficiently.
 
-![image](https://github.com/user-attachments/assets/c7010895-0d54-4de2-9950-a28ed70545d5)
+![image](https://github.com/user-attachments/assets/f20bcca0-cfa2-474d-8ef4-d3c3272375a0)
 
 
 
