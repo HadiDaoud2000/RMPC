@@ -286,3 +286,10 @@ u = M(q)( \ddot{q_d}(t) + K_d\dot{e} +K_pe) + C(q, \dot{q})\dot{q} + B\dot{q} + 
 $$
 
 
+**Conclusion:**
+
+In this project we implemented various path planning algorithms (PF, RRT_connect, RRT*, RL) to plan a path for Franka Emika 7 DoF manipulator to avoid obstacles, then we planned the trajectory using joint space interpolation, and we controlled the motion by implementing computed torque controller. all simulations performed in pybullet simulator, Panda Gym framework was used in RL training.
+As a result for our experements, we concluded that using RRT* is the best for the reviewd method, RL also achieved good results but without obstacle avoidance. due to the lack of time, the collision check while training coudln't be solved because of some interceptions between RL training and collision checker.
+PF is not a good method for manipulators because it is only planning the path for the end effector without considering the collision between the manipulator's body and obstacles.
+
+
