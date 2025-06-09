@@ -239,11 +239,47 @@ to move and the desired position2.
 
 **Trajectory Planning:**
 
-After obtaining a collision-free path from an obstacle avoidance algorithm (e.g., RRT*), the next step is joint-space trajectory planning to ensure smooth and dynamically feasible motion between consecutive waypoints. For this purpose, we employ the multiple trajectory planning methods, such as quantic jtraj (joint trajectory) function, a widely used method in robotics for generating interpolated trajectories in joint space.
+After obtaining a collision-free path from an obstacle avoidance algorithm, the next step is joint-space trajectory planning to ensure smooth and dynamically feasible motion between consecutive waypoints. For this purpose, we employ the multiple trajectory planning methods, such as quantic jtraj (joint trajectory) function, a widely used method in robotics for generating interpolated trajectories in joint space.
 
 $$
 \theta(t) = a_0 + a_1 t + a_2 t^2 + a_3 t^3 + a_4 t^4 + a_5 t^5
 $$
 
 By leveraging jtraj for joint-space interpolation, we achieve precise, smooth, and dynamically feasible motion for the Franka Emika Panda, while seamlessly integrating obstacle-free paths from sampling-based planners.
+
+
+**Computed torque controller:**
+
+we can describe the dynamics of a manipulator in this equation :
+$$
+M(q)\ddot{q} + C(q, \dot{q})\dot{q} + B\dot{q} + G(q) = u
+$$
+
+Where:
+- $q$: Joint positions (n×1 vector)
+- $M(q)$: Inertia matrix (n×n, symmetric positive definite)
+- $C(q,\dot{q})$: Coriolis/centrifugal matrix (n×n)
+- $B$: Damping/friction matrix (n×n)
+- $G(q)$: Gravity vector (n×1)
+- $u$: Control input torque (n×1)
+
+now let $q_d $ be the desired trajectory, we introduce $a_q$ :
+$$
+a_q = \ddot{q_d}(t) + K_d(\dot{q_d}(t) - \dot{q}) +K_p(q_d(t) -q) = \ddot{q}
+$$
+
+By substituting $a_q$ in dynamics equation we get:
+
+$$
+M(q)a_q + C(q, \dot{q})\dot{q} + B\dot{q} + G(q) = u
+$$
+
+$$
+u = M(q)( \ddot{q_d}(t) + K_d(\dot{q_d}(t) - \dot{q}) +K_p(q_d(t) -q)) + C(q, \dot{q})\dot{q} + B\dot{q} + G(q)
+$$
+
+$$
+u = M(q)( \ddot{q_d}(t) + K_d\dot{e} +K_pe) + C(q, \dot{q})\dot{q} + B\dot{q} + G(q)
+$$
+
 
