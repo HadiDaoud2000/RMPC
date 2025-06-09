@@ -171,6 +171,31 @@ Through repeated iterations of this process sampling, connecting, and rewiring  
 
 
 
+**Reinforcement Learning:**
+Reinforcement learning (RL) is a branch of machine learning depended on
+the interactions between the agent and the environment to train the agent, it is in-
+spired by human’s behavior where the human learns from the consequences of his
+actions, so the main idea of RL is to give a reward for the agent, this reward is
+predicted using a value function and the Agent will try to maximize the long-term
+reward. However applying RL algorithms in continuous action space is a chal-
+lenge, one of the most popular methods to use in continuous action space is Deep
+Deterministic Policy Gradient(DDPG). DDPG is an off-policy algorithm which
+can reuse past experiences stored in a replay buffer to improve learning, DDPG
+depends on Actor-Critic architecture to develop the optimal policy. in this report
+we will show the results of implementing DDPG algorithm on PandaReach-v3 task, using Panda Gym framework (based on pybullet physics engine) due to its ease of usage in RL applications.
+due to the lack of time, RL was implemented only for environments without obstacles.
+
+**Task description in RL framework:**
+Reach problem in Panda-gym environment: A target position must be
+reached with the gripper.This target position is randomly generated in a volume of
+30 cm × 30 cm × 30 cm, with an observation of position and speed of the gripper
+(6 coordinates), and three actions including the end-effector movement on each of
+movement axis (X, Y, and Z) (3 coordinates). if the reward set as sparse (default
+option), it means a reward of 0 is obtained if the entity to move is at the desired
+position (with a tolerance of 5 cm), and −1 otherwise, and if the reward is set as
+dense, it means that the reward is the opposite of the distance between the entity
+to move and the desired position2.
+
 ![panda_agent Policy](https://github.com/user-attachments/assets/a4d8fd37-2a61-4d7c-a167-84f6eaa2d8c6)
 
 
