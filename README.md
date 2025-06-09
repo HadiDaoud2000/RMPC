@@ -157,6 +157,16 @@ This alternating strategy helps both trees explore the collision-free space whil
  However, the bidirectional search still exhibits a certain degree of randomness and cannot guarantee an optimal path obtainment.
 ![RRT](https://github.com/user-attachments/assets/ba574325-38a7-430f-8b5f-2c2a96ffcd40)
 
+
+https://github.com/user-attachments/assets/a2ffc0c8-da2d-4e11-98f6-b190c1a5b5e2
+
+
+https://github.com/user-attachments/assets/39902602-0215-47af-87f6-134cb930c35f
+
+
+
+
+
  **RRT_star:**
  
 RRT*, an extension of RRT, which incorporates the parental node reselection and rewiring mechanisms, achieving asymptotic optimality at the cost of increased computation time.
@@ -178,6 +188,10 @@ Here’s how it works in each iteration:
 Through repeated iterations of this process sampling, connecting, and rewiring  RRT* gradually improves the quality of the path. Over time, it converges toward the optimal solution, ensuring asymptotic optimality while still exploring complex environments efficiently.
 
 ![RRTTT](https://github.com/user-attachments/assets/99232967-9cda-46da-a72a-c8e2e05af877)
+
+
+https://github.com/user-attachments/assets/44808be3-5100-45d5-a987-2a85e116634e
+
 
 
 **Reinforcement Learning:**
