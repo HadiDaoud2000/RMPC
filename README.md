@@ -251,11 +251,13 @@ By leveraging jtraj for joint-space interpolation, we achieve precise, smooth, a
 **Computed torque controller:**
 
 we can describe the dynamics of a manipulator in this equation :
+
 $$
 M(q)\ddot{q} + C(q, \dot{q})\dot{q} + B\dot{q} + G(q) = u
 $$
 
 Where:
+
 - $q$: Joint positions (n×1 vector)
 - $M(q)$: Inertia matrix (n×n, symmetric positive definite)
 - $C(q,\dot{q})$: Coriolis/centrifugal matrix (n×n)
@@ -263,7 +265,8 @@ Where:
 - $G(q)$: Gravity vector (n×1)
 - $u$: Control input torque (n×1)
 
-now let $q_d $ be the desired trajectory, we introduce $a_q$ :
+now let $q_d$ be the desired trajectory, we introduce $a_q$ :
+
 $$
 a_q = \ddot{q_d}(t) + K_d(\dot{q_d}(t) - \dot{q}) +K_p(q_d(t) -q) = \ddot{q}
 $$
