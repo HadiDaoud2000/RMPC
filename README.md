@@ -6,6 +6,9 @@ this repository represent a course work in the subject RMPC
 
 this project's main goal is to achieve path planning, trajectory planning, and motion control for Franka Emika 7DoF robotic manipulator with static obstacles avoidance using different algorithms (PF, RRT_connect, RRT*, RL) for path planning, (joint space interpolation) for trajectory planning, and finally computed torque controller as a motion controller.
 
+**Modeling The Robot**
+The first step in this problem is to find the forward kinematics of the robot. To obtain the forward kinematics, one can begin by defining the robot's kinematic structure, including joint variables, link lengths, joint angles, and their corresponding transformation matrices using the Denavit-Hartenberg (DH) parameters. Denavit-Hartenberg (DH) transformation matrix between two consecutive links $i$ and $i+1$ is given by the form:
+
 **Path Planning Algorithms:**
 The path planning of robotic arms in complex and narrow environments with multiple obstacles poses challenges, and path-planning algorithms can generally be categorized into three types: graph-based search, deep learning-based, and sampling-based algorithms.
 
