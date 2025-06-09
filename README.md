@@ -21,6 +21,7 @@ The first step in this problem is to find the forward kinematics of the robot. T
 |  0.088  |  90.0° |  q7 | 0.107 | -166.0° | 166.0° |
 
 Subsequently, the transformation matrices for each joint can be derived, and these can be multiplied to obtain the transformation matrix that maps the joint variables to the end-effector position and orientation. Finally, the position and orientation of the end-effector can be extracted from the resulting transformation matrix. This process allows for the formal derivation of the forward kinematics for a robotic system.
+
 $$
 T_{i,i+1}(\theta) = \begin{bmatrix}
 \cos(\theta_i) & -\sin(\theta_i)\cos(\alpha_i) & \sin(\theta_i)\sin(\alpha_i) & a_i\cos(\theta_i) \\
